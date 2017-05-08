@@ -25,6 +25,8 @@ module.exports = {
 			"couch": {
 				server: 'http://localhost:5984',
 				database: 'perfjankie-test',
+				username: "perfjankie",
+				pwd: "tuesdayapril",
 				updateSite: true,
 				onlyUpdateSite: false
 			}

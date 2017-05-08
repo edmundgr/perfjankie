@@ -1,7 +1,7 @@
 {
 	"browsers": [{
 		"browserName": "chrome",
-		"version": 32
+		"version": 57
 	}],
 	"selenium": {
 		"hostname": "localhost",
@@ -9,9 +9,9 @@
 	},
 
 	"couch": {
-		"server": "http://localhost:5984",
-		"username": "admin_user",
-		"pwd": "admin_pass",
+		"server": "http://127.0.0.1:5984",
+		"username": "perfjankie",
+		"pwd": "tuesdayapril",
 		"database": "perfjankie-test"
 	}
 }
