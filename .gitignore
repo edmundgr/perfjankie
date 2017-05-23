@@ -1,7 +1,7 @@
 node_modules/
 bower_components/
 bin/
-bin-site/
+#bin-site/
 *.log
 .DS_Store
 .idea/*

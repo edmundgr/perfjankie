@@ -1,0 +1,47 @@
+<div class="sidebar col-md-2 nav" ng-controller="SideBarCtrl as sidebar" ng-cloak>
+	<div ng-if="!pagename || !browser" class="page-select">
+		<h4>Select a test case to view metrics</h4>
+		<hr/>
+	</div>
+	<div ng-if="pagename && browser">
+		<div class="metadata">
+			<span class="browser icon-{{browser}}" title="Metrics collected on {{browser}}"></span>
+			<h4> <strong title="{{pagename}}">{{pagename}}</strong>
+			</h4>
+			<a href = "#/page" class="btn btn-xs btn-primary">select</a>
+		</div>
+		<ul class="nav">
+			<li>
+				<a href="#/summary?pagename={{pagename}}&browser={{browser}}">
+					<span class = "icon-gauge"></span>
+					Summary
+				</a>
+			</li>
+			<li ng-repeat = "(category, values) in sidebar.categories">
+				<a ng-click="subMenu=(subMenu===category?'':category)">
+					<span class = "icon-{{category}}"></span>
+					{{category}}
+					<span class="pull-right" ng-if="subMenu!==category">+</span>
+					<span class="pull-right" ng-if="subMenu===category">-</span>
+				</a>
+				<ul class="nav sub-menu" ng-show="subMenu===category">
+					<li ng-repeat="metric in values">
+						<a ng-href="#/detail?pagename={{pagename}}&browser={{browser}}&metric={{metric}}">
+							<span class="icon-{{category}}-sub"></span>
+							{{metric | formatMetric}}
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#/all-metrics?pagename={{pagename}}&browser={{browser}}">
+					<span class = "icon-sort-alphabet-outline"></span>
+					All metrics
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="help pj-brand">
+		<!-- TODO Add help text -->
+	</div>
+</div>
